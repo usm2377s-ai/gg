@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "no-hotbar-swap-anim",
+  "version": "${version}",
+  "name": "No Hotbar Swap Animation",
+  "description": "Removes the item switch/equip animation, hides the hotbar selection square, and hides Sodium Extra's light-updates toggle message.",
+  "authors": [
+    "you"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.example.nohotbaranim.NoHotbarAnimMod"
+    ]
+  },
+  "mixins": [
+    "no-hotbar-swap-anim.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.18.0",
+    "minecraft": "~1.21.11",
+    "java": ">=21"
+  }
+}
