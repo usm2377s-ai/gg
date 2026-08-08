@@ -1,10 +1,8 @@
 package com.example.nohotbaranim.mixin;
 
-import java.util.function.Function;
-
+import com.mojang.blaze3d.pipeline.RenderPipeline;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;
-import net.minecraft.client.render.RenderLayer;
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -23,13 +21,13 @@ public abstract class HotbarSelectionMixin {
 		method = "renderHotbar",
 		at = @At(
 			value = "INVOKE",
-			target = "Lnet/minecraft/client/gui/DrawContext;drawGuiTexture(Ljava/util/function/Function;Lnet/minecraft/util/Identifier;IIII)V"
+			target = "Lnet/minecraft/client/gui/DrawContext;drawGuiTexture(Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/util/Identifier;IIII)V"
 		)
 	)
-	private void noHotbarSwapAnim$hideSelectionBox(DrawContext context, Function<Identifier, RenderLayer> renderLayers, Identifier sprite, int x, int y, int width, int height) {
+	private void noHotbarSwapAnim$hideSelectionBox(DrawContext context, RenderPipeline pipeline, Identifier sprite, int x, int y, int width, int height) {
 		if (sprite.equals(HOTBAR_SELECTION_TEXTURE)) {
 			return;
 		}
-		context.drawGuiTexture(renderLayers, sprite, x, y, width, height);
+		context.drawGuiTexture(pipeline, sprite, x, y, width, height);
 	}
 }
