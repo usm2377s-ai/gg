@@ -12,11 +12,6 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-/**
- * Skips drawing the small white outline (HOTBAR_SELECTION_TEXTURE) that
- * highlights whichever hotbar slot is currently selected. Everything else
- * about the hotbar (items, background, offhand slot) still renders normally.
- */
 @Mixin(InGameHud.class)
 public abstract class HotbarSelectionMixin {
 
