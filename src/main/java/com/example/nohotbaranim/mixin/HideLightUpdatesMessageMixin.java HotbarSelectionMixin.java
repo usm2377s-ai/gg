@@ -7,15 +7,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-/**
- * Cancels the little action-bar popup text whenever it mentions "light
- * update" (the message Sodium Extra shows when its "Light Updates" debug
- * option is toggled on/off). This hooks Minecraft's own general-purpose
- * overlay-message system rather than depending on Sodium Extra's internal
- * classes directly, so it keeps working even if Sodium Extra changes
- * internally, and it also catches any other mod that reuses this same
- * vanilla message system to say the same thing.
- */
 @Mixin(InGameHud.class)
 public abstract class HideLightUpdatesMessageMixin {
 
